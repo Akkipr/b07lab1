@@ -16,6 +16,7 @@ public class Polynomial {
 		int j = Math.min(this.coefficients.length, p.coefficients.length);
 		int h = Math.max(this.coefficients.length, p.coefficients.length);
 		int m = -1;
+		Polynomial q = new Polynomial();
 		double[] n = new double[(int) h];
 		
 		for (int i=0; i<j; i++) {
@@ -25,8 +26,8 @@ public class Polynomial {
 		m=m+1;
 		
 		if (m==h) {
-			p.coefficients=n;
-			return p;
+			q.coefficients=n;
+			return q;
 		} 
 
 		for (int i=m; i < h; i++ ) {
@@ -37,8 +38,8 @@ public class Polynomial {
 				n[(int) m] = p.coefficients[(int) m];
 			}
 		}
-		p.coefficients=n;
-		return p;
+		q.coefficients=n;
+		return q;
 	}
 	
 	public double evaluate(double x) {
